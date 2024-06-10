@@ -1,0 +1,13 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: var(--button-color);
+}
