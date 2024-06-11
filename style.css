@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --primary-text-color: var(--light-theme-text-color);
-    --primary-background-color: var(--light-theme-background-color);
-    --secondary-text-color: var(--light-theme-secondary-color);
-    --disabled-text-color: var(--light-theme-disabled-color);
-    --divider-color: var(--light-theme-divider-color);
+    --primary-text-color: #212121;
+    --primary-background-color: #fff;
+    --background-10-percent-layer: rgba(0, 0, 0, 0.1);
+    --background-5-percent-layer: rgba(0,0,0,0.05);
+    --secondary-text-color: #737373;
+    --disabled-text-color: #9b9b9b;
+    --divider-color: #dbdbdb;
     --header-height: 56px;
-    --header-background-color: #fff;
     --mini-nav-width: 72px;
     --full-nav-width: 240px;
     --logo-height: 20px;
@@ -17,15 +18,16 @@
     --channel-dp-width: 36px;
     --icon-height: 24px;
     --icon-width: 24px;
-    --chip-background-color: rgba(0, 0, 0, 0.055);
+    --chip-background-color: var(--background-5-percent-layer);
     --root-font-size: 10px;
     --root-line-height: 10px;
     --font-weight: 500;
     --search-border-color: #d3d3d3;
-    --mini-nav-background-color: rgba(0,0,0,0.05);
-    --mini-nav-color: #0f0f0f;
+    --nav-background-color: var(--background-5-percent-layer);
+    --nav-color: #0f0f0f;
     --button-color: #f8f8f8;
-    --description-color:#606060;
+    --description-color: #606060;
+    --scrollbar-color: rgb(142, 142, 142);
 }
 
 /* root styles */
@@ -51,11 +53,11 @@ body {
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    left:0;
-    right:0;
-    top:0;
-    z-index:100;
-    background-color: var(--header-background-color);
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    background-color: var(--primary-background-color);
 }
 
 .ham-logo {
@@ -70,7 +72,7 @@ body {
 }
 
 #hamburger:hover {
-    background-color: var(--light-theme-secondary-color);
+    background-color: var(--background-10-percent-layer);
     border-radius: 50%;
 }
 
@@ -94,7 +96,8 @@ body {
     flex-basis: 600px;
     flex-shrink: 1;
     margin: 0px 32px px 0px;
-    padding: 0px 0px 0px 15px;  /* Why this setting works to align the button and input? Remove padding-right and it scatters!*/
+    padding: 0px 0px 0px 15px;
+    /* Why this setting works to align the button and input? Remove padding-right and it scatters!*/
     box-sizing: border-box;
     height: 40px;
     border: 1px solid var(--search-border-color);
@@ -113,11 +116,12 @@ body {
     font-family: "Roboto", "Arial", sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
-    border:none;
-    outline: none; /* Removes outline when focussed */
+    border: none;
+    outline: none;
+    /* Removes outline when focussed */
 }
 
-.search-form>button{
+.search-form>button {
     border-radius: 0px 40px 40px 0px;
     height: 100%;
     width: 64px;
@@ -129,7 +133,7 @@ body {
     background-color: var(--button-color);
 }
 
-.search-form>button:hover{
+.search-form>button:hover {
     background-color: #f0f0f0;
 }
 
@@ -141,18 +145,18 @@ body {
     border-radius: 40px;
     height: 40px;
     width: 40px;
-    margin-left:12px;
+    margin-left: 12px;
     background-color: var(--button-color);
 }
 
 #voice-search:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: var(--background-10-percent-layer);
 }
 
 #voice-search>svg {
     vertical-align: middle;
-    width:24px;
-    height:24px;
+    width: 24px;
+    height: 24px;
 }
 
 .profile-flex {
@@ -179,15 +183,16 @@ body {
 
 
 /* Nav designs */
-nav {
-    display: flex;
+
+.mini-nav {
+    display: none;
     position: fixed;
     top: var(--header-height);
     bottom: 0;
     left: 0;
     flex-direction: column;
     height: 100%;
-    padding:0px 4px;
+    padding: 0px 4px;
 }
 
 .mini-nav-card {
@@ -196,32 +201,115 @@ nav {
     align-items: center;
     justify-content: center;
     width: 64px;
-    height:44px;
+    height: 44px;
     padding: 16px 0 14px;
-    color:var(--mini-nav-color);
+    color: var(--nav-color);
     border-radius: 10px;
 }
 
 .mini-nav-card:hover {
-    background-color: var(--mini-nav-background-color);
-} 
+    background-color: var(--nav-background-color);
+}
 
 .mini-nav-card>p {
     margin: 0;
     padding: 0;
     max-height: 14px;
-    max-width:100%;
+    max-width: 100%;
     line-height: 1.4rem;
 }
 
 .mini-nav-card>svg {
-    width:var(--icon-width);
-    height:var(--icon-height);
+    width: var(--icon-width);
+    height: var(--icon-height);
     margin-bottom: 6px;
 }
 
+.full-nav {
+    display: none;
+    position: fixed;
+    top: var(--header-height);
+    bottom: 0;
+    left: 0;
+    flex-direction: column;
+    height: 100%;
+    padding: 12px;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) var(--primary-background-color);
+    scrollbar-arrow-color: var(--primary-background-color);
+}
+
+.full-nav:hover {
+    overflow-y: auto;
+}
+
+.full-nav-card {
+    padding: 0px 12px;
+    min-height: 40px;
+    height: 40px;
+    width: 180px;
+    font-size: 1.6rem;
+    color: var(--nav-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+
+.full-nav-card:hover {
+    background-color: var(--nav-background-color);
+    border-radius: 10px;
+}
+
+.full-nav-card:active {
+    background-color: var(--nav-background-color);
+    border-radius: 10px;
+}
+
+.nav-box {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--background-10-percent-layer);
+}
+
+.full-nav-card>svg, .full-nav-card>img {
+    width: var(--icon-width);
+    height: var(--icon-height);
+    margin-right: 24px;
+}
+
+.full-nav-card>p {
+    height: 20px;
+    width: 132px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    flex: 1 1 1e-9px;
+}
+
+.full-nav-card.nav-box-header>p {
+    height: 20px;
+    width: 132px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+    flex:0 0 ;
+    padding-right: 8px;
+}
+
+.full-nav-card.nav-box-header>svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 0px;
+}
+
+nav .show {
+    display: flex;
+}
+
 main {
-    margin-left: var(--mini-nav-width);
+    margin-left: var(--full-nav-width);
     margin-top: calc(var(--header-height) * 2);
 }
 
@@ -234,11 +322,11 @@ main {
     flex-wrap: nowrap;
     position: fixed;
     top: var(--header-height);
-    left: var(--mini-nav-width);
-    right:0;
+    left: var(--full-nav-width);
+    right: 0;
     height: var(--header-height);
-    z-index:100;
-    background-color: var(--header-background-color);
+    z-index: 100;
+    background-color: var(--primary-background-color);
 }
 
 .filter-chip {
@@ -258,6 +346,10 @@ main {
     transition: background-color .5s cubic-bezier(.05, 0, 0, 1);
 }
 
+.filter-chip:hover {
+    background-color: var(--background-10-percent-layer);
+}
+
 #active {
     background-color: #030303;
     color: #ffffff;
@@ -275,11 +367,11 @@ main {
 
 .content-card {
     margin: 0px 8px 40px 8px;
-    position:relative;
+    position: relative;
 }
 
 .content-card:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: var(--background-10-percent-layer);
     margin: 0px 0px 40px 0px;
     padding: 0px 8px;
     border-radius: 12px;
@@ -295,7 +387,7 @@ main {
     max-width: 100%;
     display: inline-block;
     border-radius: 12px;
-    
+
 }
 
 .card-duration {
