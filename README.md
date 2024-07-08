@@ -59,4 +59,20 @@
 
 Questions:
 - How to make styles from one class override another class when both classes are applied to the same element?
-  
+**Answer:**
+To make styles from one class override another class when both classes are applied to the same element, you can use the following methods:
+1. Increase specificity: Make the selector of the overriding class more specific than the original class. For example, instead of using a single class, use a combination of classes or add an ID to the selector.
+2. Use the !important declaration: Add !important to the properties you want to override in the overriding class. This will give them higher priority than the original class.
+3. Use a preprocessor: If you're using a preprocessor like Sass or Less, you can use a feature like "selector nesting" to make the overriding class more specific.
+4. Reorder the classes: If all else fails, try reordering the classes in the HTML element. The last class defined will take precedence over the earlier ones.
+**Here's an example of using !important to override styles:**
+
+.original-class {
+  color: blue;
+}
+
+.overriding-class {
+  color: red !important;
+}
+In this example, the color will be red, even if both classes are applied to the same element.
+Remember to use !important sparingly, as it can make the CSS harder to maintain. Increasing specificity or reordering classes are usually preferred solutions.
