@@ -1,6 +1,5 @@
 let fullNavWidth;
 let miniNavWidth;
-let flag =false;
 
 window.onload = function () {
     const root = document.documentElement;
