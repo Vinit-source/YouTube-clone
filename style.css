@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --primary-text-color: #212121;
+    --primary-text-color: #212121; /* define CSS Var in newly created class sponsored */
     --primary-background-color: #fff;
     --background-10-percent-layer: rgba(0, 0, 0, 0.1);
     --background-5-percent-layer: rgba(0,0,0,0.05);
-    --secondary-text-color: #737373;
-    --disabled-text-color: #9b9b9b;
-    --divider-color: #dbdbdb;
+    --secondary-text-color: #737373;/* not define in CSS Var - unused */
+    --disabled-text-color: #9b9b9b;/* not define in CSS Var - unused */
+    --divider-color: #dbdbdb;/* not define in CSS Var - unused */
     --header-height: 56px;
     --mini-nav-width: 72px;
     --full-nav-width: 240px;
@@ -238,7 +238,7 @@ body {
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-color) var(--primary-background-color);
     scrollbar-arrow-color: var(--primary-background-color);
-}
+    }
 
 .full-nav:hover {
     overflow-y: auto;
@@ -345,6 +345,19 @@ main {
     font-family: "Roboto", "Arial", sans-serif;
     transition: background-color .5s cubic-bezier(.05, 0, 0, 1);
 }
+/*Created a new class class icon and when hovering the icon another class is created*/
+.icon {
+     background-color: transparent;
+     border: none;
+     cursor: auto;
+     color: var(--description-color);}
+
+.icon:hover {
+    color: #fff;
+    background-color: var(--button-color);
+    border: none;
+    cursor:auto
+  }
 
 .filter-chip:hover {
     background-color: var(--background-10-percent-layer);
@@ -426,6 +439,14 @@ main {
 
 .card-details-main span {
     color: var(--description-color);
+    line-height: 2rem;
+    font-size: 1.4rem;
+    text-overflow: ellipsis;
+}
+/*Created a new class called sponsored*/
+.sponsored{
+    color: var(--primary-text-color);
+    font-weight: 700;
     line-height: 2rem;
     font-size: 1.4rem;
     text-overflow: ellipsis;
